@@ -10,7 +10,7 @@ http-standardized-error
 </h1>
 
 <p align="center">
- ttp-standardized-error is a JavaScript library that aims to capture errors from commonly used libraries and return a standardized error object. This error object includes the correct HTTP status code and a precise error message. 
+ http-standardized-error is a JavaScript library that aims to capture errors from commonly used libraries and return a standardized error object. This error object includes the correct HTTP status code and a precise error message. 
 </p>
 
 <p align="center">
@@ -65,6 +65,21 @@ http-standardized-error currently supports the following commonly used JavaScrip
 
 The library automatically detects errors thrown by these libraries and provides standardized error objects for them. If you encounter an error from a different library, the library will attempt to provide a generic standardized error object.
 
+<h2> Sample Error Object output </h2>
+
+```javascript
+{
+  "status": 400,
+  "message": "Bad Request",
+  "details": [
+    {
+      "message": "Some error message",
+      "code": "SOME_ERROR_CODE",
+      "source": "SOME_ERROR_SOURCE"
+    }
+  ]
+}
+```
 <h2>
 Contributing
 </h2>
@@ -74,34 +89,10 @@ Contributions to http-standardized-error are welcome! If you find a bug or have 
 When contributing, please ensure that your code follows the existing coding style and that you have written tests for any new functionality.
 
 <h2>
-Http response status
+  SUPPORTED Http response status codes 
 </h2>
 
-http-standardized-error uses the following HTTP status codes:
-
-1xx - Informacional:
-
-100 Continue
-101 Switching Protocols
-102 Processing
-
-<h3><s>2xx - Sucesso:</s></h3>
-<ul>
-  <li><s>200 OK</s></li>
-  <li><s>201 Created</s></li>
-  <li><s>202 Accepted</s></li>
-  <li><s>204 No Content</s></li>
-  <li><s>206 Partial Content</s></li>
-</ul>
-<h3><s>3xx - Redirecionamento:</s></h3>
-<ul>
-  <li><s>300 Multiple Choices</s></li>
-  <li><s>301 Moved Permanently</s></li>
-  <li><s>302 Found</s></li>
-  <li><s>304 Not Modified</s></li>
-  <li><s>307 Temporary Redirect</s></li>
-  <li><s>308 Permanent Redirect</s></li>
-</ul>
+http-standardized-error supporting the following HTTP status codes:
 
 4xx - Erro do Cliente:
 
@@ -109,6 +100,10 @@ http-standardized-error uses the following HTTP status codes:
 - 401 Unauthorized
 - 403 Forbidden
 - 404 Not Found
+- 405 Method Not Allowed
+- 406 Not Acceptable
+- 407 Proxy Authentication Required
+- 408 Request Timeout
 - 409 Conflict
 - 410 Gone
 - 429 Too Many Requests
@@ -121,6 +116,39 @@ http-standardized-error uses the following HTTP status codes:
 - 503 Service Unavailable
 - 504 Gateway Timeout
 - 505 HTTP Version Not Supported
+  
+<h2>
+Unsuported http response status codes
+</h2>
+
+<p> 
+The following status codes are not supported by http-standardized-error. Thats because they are not considered errors, but rather informational or successful responses.
+</p>
+
+<h3><s>1xx - Informacional:</s></h3>
+<ul>
+  <li><s>100 Continue</s></li>
+  <li><s>101 Switching Protocols</s></li>
+  <li><s>102 Processing</s></li>
+<ul>
+
+<h3><s>2xx - Sucesso:</s></h3>
+<ul>
+  <li><s>200 OK</s></li>
+  <li><s>201 Created</s></li>
+  <li><s>202 Accepted</s></li>
+  <li><s>204 No Content</s></li>
+  <li><s>206 Partial Content</s></li>
+<ul>
+<h3><s>3xx - Redirecionamento:</s></h3>
+<ul>
+  <li><s>300 Multiple Choices</s></li>
+  <li><s>301 Moved Permanently</s></li>
+  <li><s>302 Found</s></li>
+  <li><s>304 Not Modified</s></li>
+  <li><s>307 Temporary Redirect</s></li>
+  <li><s>308 Permanent Redirect</s></li>
+</ul>
 
 <h2>
 License
