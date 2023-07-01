@@ -1,6 +1,7 @@
 import {
     mongooseErrorHandler,
-    expressErrorHandler    
+    expressErrorHandler,
+    axiosErrorHandler  
 } from './handlers'
 import {
     standardizeError
@@ -15,6 +16,11 @@ const errorHandler = (err, options) => {
     if (err instanceof mongoose.Error) {
         return mongooseErrorHandler(err, options);
     }
+
+    if (err.isAxiosError) {
+        return axiosErrorHandler(err, options);
+    }
+    
     return expressErrorHandler(err, options);
 };
 

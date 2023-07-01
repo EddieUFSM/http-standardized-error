@@ -13,4 +13,7 @@ const standardizeError = (err) => {
     return { message, httpErrorCode, errors }
 };
 
+module.exports = {
+    standardizeError
+};
 export default standardizeError;

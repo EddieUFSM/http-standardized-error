@@ -1,5 +1,4 @@
-
-import standardizeError from '../standardizeError';
+import { standardizeError } from '../utils';
 
 const expressErrorHandler = (err) => {
    return standardizeError({

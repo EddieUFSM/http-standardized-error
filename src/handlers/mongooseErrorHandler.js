@@ -1,4 +1,4 @@
-import standardizeError from '../standardizeError';
+import { standardizeError } from '../utils';
 
 const mongooseErrorHandler = (err) => {
     // Error.CastError
